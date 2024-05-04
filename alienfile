@@ -1,7 +1,7 @@
-#!/usr/bin/env perl
 use alienfile;
- 
-probe [ qq{ $ENV{HOME}/.local/bin/poetry --version } ];
+
+# idiomatic way to make sure we always install?
+probe [ 'exit 127' ];
  
 share {
   start_url 'https://install.python-poetry.org';
@@ -12,6 +12,9 @@ share {
     [ # https://github.com/python-poetry/install.python-poetry.org/issues/24
       # https://github.com/python-poetry/install.python-poetry.org/issues/52
       q{ sed -i -e 's/symlinks=False/symlinks=True/' %{alien.install.extract}/install-poetry.py } ],
+
     [ q{ POETRY_HOME=%{alien.install.prefix} python3 %{alien.install.extract}/install-poetry.py } ],
   ];
 };
+
+# vim: set ft=perl:
