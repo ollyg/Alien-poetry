@@ -13,6 +13,8 @@ WriteMakefile($abmm->mm_args(
   },
   BUILD_REQUIRES => {
     'Alien::Build::MM' => 0,
+    'Path::Tiny' => '0.144',
+    'File::ShareDir::Dist' => '0.07',
   },
   PREREQ_PM => {
     'Alien::Base' => 0,

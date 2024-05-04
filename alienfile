@@ -14,8 +14,4 @@ share {
       q{ sed -i -e 's/symlinks=False/symlinks=True/' %{alien.install.extract}/install-poetry.py } ],
     [ q{ POETRY_HOME=%{alien.install.prefix} python3 %{alien.install.extract}/install-poetry.py } ],
   ];
-
-  gather [
-    [ qq{ echo '$ENV{HOME}/.local/bin' }, \'%{alien.runtime.bin_dir}' ],
-  ];
 };
