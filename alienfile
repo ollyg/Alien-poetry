@@ -15,9 +15,9 @@ share {
 
     # poetry is not relocateable as it heads files with an absolute shebang
     # so install direct to the sharedir for Alien::poetry
-    [ q{ POETRY_HOME=%{alien.runtime.prefix}
-         POETRY_CACHE_DIR=$HOME/poetry
-         POETRY_CONFIG_DIR=$HOME/poetry
+    [ q{ POETRY_HOME=%{alien.runtime.prefix} \
+         POETRY_CACHE_DIR=$HOME/.cache/pypoetry \
+         POETRY_CONFIG_DIR=$HOME/.config/pypoetry \
          python3 %{alien.install.extract}/install-poetry.py } ],
 
     # then copy back to blib so that .packlist gets files, allows clean uninstall
