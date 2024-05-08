@@ -19,9 +19,8 @@ share {
     [ q{ POETRY_HOME=%{alien.runtime.prefix} \
            python3 %{alien.install.extract}/install-poetry.py } ],
 
-    # then copy back to blib so that .packlist gets files,
-    # allows use of File::ShareDir to locate binary cross-platform,
-    # and a clean(er) uninstall (so long as self upgrade is not run).
+    # then copy back to blib so that .packlist gets files, and
+    # allows use of File::ShareDir to locate binary cross-platform
     [ q{ cp -a %{alien.runtime.prefix}/{bin,venv,VERSION} \
                %{alien.install.prefix}/ } ],
   ];
